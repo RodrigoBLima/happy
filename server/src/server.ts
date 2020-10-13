@@ -1,5 +1,5 @@
 import express from "express";
-
+import 'express-async-errors'
 import path from 'path'
 
 import "./database/connection";
