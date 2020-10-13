@@ -1,17 +1,13 @@
 import express from "express";
 
-import './database/connection'
+import "./database/connection";
+
+import routes from "./routes";
 
 const app = express();
 
-app.use(express.json())
+app.use(express.json());
 
-app.get("/orphanages", (request, response) => {
-
-});
-
-app.post("/orphanages", (request, response) => {
-    
-});
+app.use(routes);
 
 app.listen(3333);
