@@ -1,40 +1,12 @@
+import { Router } from "express";
+import OrphanagesController from "./controllers/OrphanagesController";
 
-import {Router} from 'express'
+const routes = Router();
 
-import { getRepository } from "typeorm";
-import Orphanage from "./models/Orphanage";
+routes.get("/orphanages", OrphanagesController.index);
 
-const routes = Router()
+routes.get("/orphanages/:id", OrphanagesController.show);
 
-routes.get("/orphanages", (request, response) => {});
+routes.post("/orphanages", OrphanagesController.create);
 
-routes.post("/orphanages", async (request, response) => {
-  const {
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends,
-  } = request.body;
-
-  const orphanageRepository = getRepository(Orphanage);
-
-  const orphanage = orphanageRepository.create({
-    name,
-    latitude,
-    longitude,
-    about,
-    instructions,
-    opening_hours,
-    open_on_weekends,
-  });
-
-  await orphanageRepository.save(orphanage);
-
-  return response.status(201).json(orphanage);
-
-});
-
-export default  routes
+export default routes;
