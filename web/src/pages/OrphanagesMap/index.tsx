@@ -20,7 +20,6 @@ interface Orphanage {
 
 function OrphanegesMap() {
   const [orphaneges, setOrphaneges] = useState<Orphanage[]>([]);
-  // const [state, setstate] = useState(initialState)
 
   useEffect(() => {
     api.get("orphanages").then((response) => {
