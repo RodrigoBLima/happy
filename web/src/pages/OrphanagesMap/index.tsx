@@ -6,17 +6,17 @@ import { FiPlus, FiArrowRight } from "react-icons/fi";
 
 import Leaflet from "leaflet";
 
-import mapMarker from "../../images/map-marker.svg";
+import mapMarkerImg from "../../images/map-marker.svg";
 
 import "../../styles/pages/orphanages-map.css";
-import "leaflet/dist/leaflet.css";
+import mapIcon from "../../utils/mapIcon";
 
-const mapIcon = Leaflet.icon({
-  iconUrl: mapMarker,
-  iconSize: [50, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [170, 2],
-});
+// const mapIcon = Leaflet.icon({
+//   iconUrl: mapMarker,
+//   iconSize: [50, 68],
+//   iconAnchor: [29, 68],
+//   popupAnchor: [170, 2],
+// });
 
 function OrphanegesMap() {
   return (
@@ -24,7 +24,7 @@ function OrphanegesMap() {
       <div id="page-map">
         <aside>
           <header>
-            <img src={mapMarker} alt="mapMarker" />
+            <img src={mapMarkerImg} alt="mapMarker" />
 
             <h2>Escolha um orfanato no mapa</h2>
             <p>Muitas crianças estão esperando a sua visita.</p>
