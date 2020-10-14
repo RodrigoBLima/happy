@@ -50,13 +50,13 @@ function OrphanegesMap() {
           >
             <Popup closeButton={false} maxWidth={240} className="map-poupup">
               Nome orfanato
-              <Link to="">
+              <Link to={`/orphanages/${5}`}>
                 <FiArrowRight size={32} color="#FFF" />
               </Link>
             </Popup>
           </Marker>
         </Map>
-        <Link to="" className="create-orphanage">
+        <Link to="/orphanages/create" className="create-orphanage">
           <FiPlus size={32} color="#FFF" />
         </Link>
       </div>
