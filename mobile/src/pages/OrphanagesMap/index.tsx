@@ -1,6 +1,9 @@
 import React from "react";
+
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -9,6 +12,12 @@ import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps";
 import mapMarker from "../../images/Icon.png";
 
 const OrphanagesMap: React.FC = () => {
+  const navigation = useNavigation()
+
+  function handleNavigateToOrphanageDetails(){
+    navigation.navigate("OrphanegesDetails")
+  }
+
   return (
     <View style={styles.container}>
       <MapView
@@ -32,7 +41,7 @@ const OrphanagesMap: React.FC = () => {
             longitude: -47.409243333333336,
           }}
         >
-          <Callout tooltip onPress={() => {}}>
+          <Callout tooltip onPress={handleNavigateToOrphanageDetails}>
             <View style={styles.calloutContainer}>
               <Text style={styles.calloutText}>Nome do orfanato</Text>
             </View>
@@ -57,7 +66,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#312e38",
   },
   mapStyle: {
     width: Dimensions.get("window").width,
