@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 
 import { RectButton } from "react-native-gesture-handler";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -23,12 +23,12 @@ interface Orphanage {
 const OrphanagesMap: React.FC = () => {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
 
-  useEffect(() => {
+  useFocusEffect(() => {
     api.get("orphanages").then((response) => {
       let data = response.data;
       setOrphanages(data);
     });
-  }, []);
+  });
 
   const navigation = useNavigation();
 
@@ -79,7 +79,10 @@ const OrphanagesMap: React.FC = () => {
         })}
       </MapView>
       <View style={styles.footer}>
-      <Text style={styles.footerText}> {orphanages.length} orfanatos encontrados</Text>
+        <Text style={styles.footerText}>
+          {" "}
+          {orphanages.length} orfanatos encontrados
+        </Text>
         <RectButton
           style={styles.createOrphanageButton}
           onPress={handleNavigateToCreateOrphanage}
