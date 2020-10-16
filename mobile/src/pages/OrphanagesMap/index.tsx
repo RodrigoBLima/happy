@@ -53,24 +53,26 @@ const OrphanagesMap: React.FC = () => {
         }}
       >
         {orphanages.map((orphanage) => {
-          <Marker
-            icon={mapMarker}
-            calloutAnchor={{
-              x: 2.7,
-              y: 0.8,
-            }}
-            key={orphanage.id}
-            coordinate={{
-              latitude: orphanage.latitude,
-              longitude: orphanage.longitude,
-            }}
-          >
-            <Callout tooltip onPress={handleNavigateToOrphanageDetails}>
-              <View style={styles.calloutContainer}>
-                <Text style={styles.calloutText}>{orphanage.name}</Text>
-              </View>
-            </Callout>
-          </Marker>;
+          return (
+            <Marker
+              icon={mapMarker}
+              calloutAnchor={{
+                x: 2.7,
+                y: 0.8,
+              }}
+              key={orphanage.id}
+              coordinate={{
+                latitude: orphanage.latitude,
+                longitude: orphanage.longitude,
+              }}
+            >
+              <Callout tooltip onPress={handleNavigateToOrphanageDetails}>
+                <View style={styles.calloutContainer}>
+                  <Text style={styles.calloutText}>{orphanage.name}</Text>
+                </View>
+              </Callout>
+            </Marker>
+          );
         })}
       </MapView>
       <View style={styles.footer}>
