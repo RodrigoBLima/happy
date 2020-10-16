@@ -3,7 +3,7 @@ import { Image, View, ScrollView, Text, StyleSheet, Dimensions } from 'react-nat
 import MapView, { Marker } from 'react-native-maps';
 import { Feather, FontAwesome } from '@expo/vector-icons';
 
-import mapMarkerImg from '../images/map-marker.png';
+import mapMarkerImg from '../../images/Icon.png';
 import { RectButton } from 'react-native-gesture-handler';
 
 export default function OrphanageDetails() {
