@@ -2,7 +2,7 @@ import React from "react";
 
 import { View, Text, StyleSheet, Dimensions } from "react-native";
 
-import { TouchableOpacity } from "react-native-gesture-handler";
+import { RectButton } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
@@ -54,12 +54,12 @@ const OrphanagesMap: React.FC = () => {
       </MapView>
       <View style={styles.footer}>
         <Text style={styles.footerText}>aa</Text>
-        <TouchableOpacity
+        <RectButton
           style={styles.createOrphanageButton}
           onPress={handleNavigateToCreateOrphanage}
         >
           <Feather name="plus" size={20} color="#FFF" />
-        </TouchableOpacity>
+        </RectButton>
       </View>
     </View>
   );
